@@ -1,0 +1,9 @@
+Tienda de perfumes
+
+2 bases de datos conectadas mediante clave foraneo
+primera base de datos: marcas de los perfumes
+segunda base de datos: perfumes
+
+1- $nombre_marca(cf) / 
+
+2- $perfume / olores / durabilidad / marca(cf)
