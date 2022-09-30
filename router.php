@@ -20,19 +20,23 @@ switch ($params[0]) {
     case 'perfumes':
         $controller->showPerfumes();
         break;
+
     case 'brands':
         $controller->showBrands();
         break;
+
     case 'about':
         $controller->showAbout();
         break;
+
     case 'login':
         $controller->showLogin();        
         break;
-    case $this->perfumeModel->getDB:
-        $controller->showLogin();        
-
+        
+    case $controller->showNameBrand():  // 'brand_name'
+        echo "adsdasdsa";
         break;
+        
     default:
         echo('404 Page not found');
         break;

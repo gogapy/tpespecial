@@ -19,5 +19,15 @@ class perfumeModel{
         return $object;
     }
     
+    function getName() {
+        $db = $this->getDB();
+
+        $query = $db->prepare("SELECT * FROM brands WHERE brand_name = 'Azzaro'");
+        $query->execute();
+
+        //$object = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $query;
+    }
 
 }

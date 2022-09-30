@@ -32,4 +32,8 @@ class perfumeController{
         $this->view->showLogin();
     }
 
+    function showNameBrand() {
+        $this->model->getName();
+    }
+
 }
