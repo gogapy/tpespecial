@@ -1,4 +1,3 @@
-{include file="app/view/perfume.view.php" assign=name var1=value}
 <table class="table">
     <tr>
         <th>Name</th>
@@ -16,5 +15,5 @@
             <span><td>{$perfume->brand_name}</td></span>
         </tr>
     {/foreach}
-
 </table>
+<p class="mt-3"><small>Perfumes quantity: {$count}</small></p>

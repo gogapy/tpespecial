@@ -1,33 +1,42 @@
 <?php
-include_once "app/controller/perfume.controller.php";
 
 class perfumeModel{
 
-    function getDB() {
-        $db = new PDO('mysql:host=localhost;'.'dbname=perfume_shop;charset=utf8', 'root', '');
-        return $db;
+    private $db;
+
+    public function __construct() {
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=perfume_shop;charset=utf8', 'root', '');
     }
     
-    function getObject($object) {
-        $db = $this->getDB();
-    
-        $query = $db->prepare("SELECT * FROM $object");
+    function getObject($row, $object) {
+        $query = $this->db->prepare("SELECT $row FROM $object"); // SELECT notes FROM perfumes
         $query->execute();
-    
+
         $object = $query->fetchAll(PDO::FETCH_OBJ);
-    
+        // var_dump($object);  
+
         return $object;
     }
-    
-    function getName() {
-        $db = $this->getDB();
 
-        $query = $db->prepare("SELECT * FROM brands WHERE brand_name = 'Azzaro'");
+    function filterPerfumes($table, $object, $name) {
+        $query = $this->db->prepare("SELECT $table FROM $object WHERE brand_name = '$name'");    
         $query->execute();
 
-        //$object = $query->fetchAll(PDO::FETCH_OBJ);
+        $object = $query->fetchAll(PDO::FETCH_OBJ);
+        var_dump($object);  
 
-        return $query;
+        return $object;
     }
 
+    function createPerfume($name, $notes, $longevity, $qualification, $brand) {
+        $query = $this->db->prepare("INSERT INTO perfumes (perfume_name, notes, longevity, qualification, brand_name) VALUES (?,?,?,?,?)");
+        $query->execute([$name, $notes, $longevity, $qualification, $brand]);
+        
+        return $this->db->lastInsertId();
+    }
+
+    function deletePerfume($id) {
+        $query = $this->db->prepare('DELETE FROM perfumes WHERE id_perfume = ?');
+        $query->execute([$id]);
+    }
 }

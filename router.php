@@ -1,7 +1,5 @@
 <?php
-require_once 'app/model/perfume.model.php';
 include_once "app/controller/perfume.controller.php";
-include_once "app/view/perfume.view.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -14,11 +12,24 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $controller = new perfumeController();
+$admin = true;
 
 // tabla de ruteo
 switch ($params[0]) {
     case 'perfumes':
+        if($admin) {
+            $controller->showInsert();
+        }
         $controller->showPerfumes();
+        break;
+
+    case 'add':
+        $controller->addPerfume();
+        break;
+
+    case 'delete':
+        $id = $params[1];
+        $controller->deletePerfume($id);
         break;
 
     case 'brands':
@@ -32,11 +43,11 @@ switch ($params[0]) {
     case 'login':
         $controller->showLogin();        
         break;
-        
-    case $controller->showNameBrand():  // 'brand_name'
-        echo "adsdasdsa";
+
+    case $params[0]:  // 'brand_name'
+        $controller->filterPerfumes($params[0]);
         break;
-        
+
     default:
         echo('404 Page not found');
         break;

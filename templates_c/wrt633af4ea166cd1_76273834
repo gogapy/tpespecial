@@ -1,0 +1,49 @@
+<?php
+/* Smarty version 4.2.1, created on 2022-10-03 16:42:50
+  from 'C:\xampp\htdocs\tpespecial\templates\show_create.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_633af4ea0b5942_66691142',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'bd23e9570e3a95cbad03b9a8629f24da93e61741' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\tpespecial\\templates\\show_create.tpl',
+      1 => 1664806253,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_633af4ea0b5942_66691142 (Smarty_Internal_Template $_smarty_tpl) {
+?><form action="add" method="get" class="row g-3 mt-1">
+  <div class="col-md-6">
+    <label class="form-label">Perfume name</label>
+    <input name="perfume" type="text" class="form-control" placeholder="Perfume name">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Notes</label>
+    <input name="notes" type="text" class="form-control" placeholder="Notes">
+  </div>
+  <div class="col-6">
+    <label class="form-label">Qualification</label>
+    <input name="qualification" type="text" class="form-control" placeholder="Qualification">
+  </div>
+  <div class="col-6">
+    <label class="form-label">Durability</label>
+    <input name="durability" type="text" class="form-control" placeholder="Durability">
+  </div>
+  <div class="col-md-12">
+    <label class="form-label">Brand</label>
+    <input name="brand" type="text" class="form-control" id="inputCity" placeholder="Brand">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+</form><?php }
+}

@@ -15,12 +15,12 @@ class perfumeController{
     }
 
     function showPerfumes() {
-        $perfumes = $this->model->getObject("perfumes");
+        $perfumes = $this->model->getObject('*', "perfumes");
         $this->view->showPerfumes($perfumes);
     }
 
     function showBrands() {
-        $brands = $this->model->getObject("brands");
+        $brands = $this->model->getObject('*', "brands");
         $this->view->showBrands($brands);
     }
 
@@ -33,7 +33,38 @@ class perfumeController{
     }
 
     function showNameBrand() {
-        $this->model->getName();
+        $this->model->getObject('brand_name', 'perfumes');
     }
 
+    function showInsert() {
+        $brands = $this->model->getObject('brand_name', 'brands');
+        $this->view->showCreate($brands);
+    }
+
+    function filterPerfumes($name) {
+        $perfumes = $this->model->filterPerfumes("*", "perfumes", $name);
+        $this->view->showPerfumes($perfumes);    
+    }
+
+    function perfumeDescription($name) {
+        $perfumes = $this->model->filterPerfumes("*", "perfumes", $name);
+        $this->view->showPerfumes($perfumes);  
+    }
+
+    function addPerfume() {
+        $name = $_POST['perfume'];
+        $notes = $_POST['notes'];
+        $qualification = $_POST['qualification'];
+        $longevity = $_POST['longevity'];
+        $brand = $_POST['brand'];
+
+        $id = $this->model->createPerfume($name, $notes, $qualification, $longevity, $brand);
+
+        header("Location: " . BASE_URL); 
+    }
+
+    function deletePerfume($id) {
+        $this->model->deletePerfume($id);
+        header("Location: " . BASE_URL); 
+    }
 }
