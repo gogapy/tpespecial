@@ -8,8 +8,8 @@ class perfumeModel{
         $this->db = new PDO('mysql:host=localhost;'.'dbname=perfume_shop;charset=utf8', 'root', '');
     }
     
-    function getObject($row, $object) {
-        $query = $this->db->prepare("SELECT $row FROM $object"); // SELECT notes FROM perfumes
+    function getObject($column, $table) {
+        $query = $this->db->prepare("SELECT $column FROM $table"); // SELECT notes FROM perfumes
         $query->execute();
 
         $object = $query->fetchAll(PDO::FETCH_OBJ);
@@ -18,19 +18,29 @@ class perfumeModel{
         return $object;
     }
 
-    function filterPerfumes($table, $object, $name) {
-        $query = $this->db->prepare("SELECT $table FROM $object WHERE brand_name = '$name'");    
+    function perfumeDescription($column, $table, $name) {
+        $query = $this->db->prepare("SELECT $column FROM $table WHERE perfume_name = '$name'");    
         $query->execute();
 
         $object = $query->fetchAll(PDO::FETCH_OBJ);
-        var_dump($object);  
+        // var_dump($object);  
 
         return $object;
     }
 
-    function createPerfume($name, $notes, $longevity, $qualification, $brand) {
-        $query = $this->db->prepare("INSERT INTO perfumes (perfume_name, notes, longevity, qualification, brand_name) VALUES (?,?,?,?,?)");
-        $query->execute([$name, $notes, $longevity, $qualification, $brand]);
+    function filterPerfumes($column, $table, $name) {
+        $query = $this->db->prepare("SELECT $column FROM $table WHERE brand_name = '$name'");    
+        $query->execute();
+
+        $object = $query->fetchAll(PDO::FETCH_OBJ);
+        // var_dump($object);  
+
+        return $object;
+    }
+
+    function createPerfume($name, $notes, $longevity, $qualification, $brand, $description, $image) {
+        $query = $this->db->prepare("INSERT INTO perfumes (perfume_name, notes, longevity, qualification, brand_name, perfume_description, perfume_image) VALUES (?,?,?,?,?,?,?)");
+        $query->execute([$name, $notes, $longevity, $qualification, $brand, $description, $image]);
         
         return $this->db->lastInsertId();
     }

@@ -12,16 +12,24 @@
     <input name="qualification" type="number" class="form-control" placeholder="Qualification">
   </div>
   <div class="col-6">
-    <label class="form-label">Durability</label>
-    <input name="longevity" type="text" class="form-control" placeholder="Durability">
+    <label class="form-label">Longevity</label>
+    <input name="longevity" type="text" class="form-control" placeholder="Longevity">
   </div>
-  <div class="col-md-12">
+  <div class="col-md-6">
     <label class="form-label">Brand</label>
-    <select name="brand" class="form-control">
+    <select name="brand"  class="form-control">
       {foreach from=$brands item=$brand}
-        <option value="brand">{$brand->brand_name}</option>
+        <option name="brand">{$brand->brand_name}</option>
       {/foreach}
     </select>
+  </div>
+  <div class="col-6">
+    <label class="form-label">Image</label>
+    <input name="image" type="text" class="form-control" placeholder="Image">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Description</label>
+    <textarea style="max-height: 250px;" name="description" placeholder="Description" class="form-control" cols="30" rows="10"></textarea>
   </div>
   <div class="col-12">
     <button type="submit" class="btn btn-primary">Create</button>

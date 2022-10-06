@@ -47,18 +47,21 @@ class perfumeController{
     }
 
     function perfumeDescription($name) {
-        $perfumes = $this->model->filterPerfumes("*", "perfumes", $name);
-        $this->view->showPerfumes($perfumes);  
+        $perfumes = $this->model->perfumeDescription("*", "perfumes", $name);
+        //var_dump($perfumes);
+        $this->view->showPerfumeFilter($perfumes);  
     }
 
     function addPerfume() {
         $name = $_POST['perfume'];
         $notes = $_POST['notes'];
-        $qualification = $_POST['qualification'];
         $longevity = $_POST['longevity'];
+        $qualification = $_POST['qualification'];
         $brand = $_POST['brand'];
+        $description = $_POST['description'];
+        $image = $_POST['image'];
 
-        $id = $this->model->createPerfume($name, $notes, $qualification, $longevity, $brand);
+        $id = $this->model->createPerfume($name, $notes, $longevity, $qualification, $brand, $description, $image);
 
         header("Location: " . BASE_URL); 
     }

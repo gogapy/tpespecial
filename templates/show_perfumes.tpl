@@ -1,3 +1,4 @@
+{include file="templates/header.tpl" assign=name var1=value}
 <table class="table">
     <tr>
         <th>Name</th>
@@ -21,3 +22,4 @@
 
 </table>
 <p class="mt-3"><small>Perfumes quantity: {$count}</small></p>
+{include file="templates/footer.tpl" assign=name var1=value}

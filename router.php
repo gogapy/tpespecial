@@ -46,6 +46,7 @@ switch ($params[0]) {
 
     case $params[0]:  // 'brand_name'
         $controller->filterPerfumes($params[0]);
+        $controller->perfumeDescription($params[0]);
         break;
 
     default:

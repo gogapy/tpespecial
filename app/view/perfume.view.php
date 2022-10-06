@@ -12,6 +12,7 @@ class perfumeView {
         $smarty = new Smarty();
         $smarty->assign('perfumes', $perfumes);
         $smarty->assign('count', count($perfumes));
+        $smarty->display('templates/header.tpl');
         $smarty->display('templates/show_perfumes.tpl');
         $smarty->display('templates/footer.tpl');
         
@@ -51,6 +52,14 @@ class perfumeView {
         $smarty->assign('brands', $brands);
         $smarty->display('templates/header.tpl');
         $smarty->display('templates/show_create.tpl');
+
+    }
+
+    function showPerfumeFilter($perfumes) {
+
+        $smarty = new Smarty();
+        $smarty->assign('perfumes', $perfumes);
+        $smarty->display('templates/perfume_description.tpl');
 
     }
 }
