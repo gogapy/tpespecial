@@ -1,5 +1,7 @@
 <?php
 include_once "app/controller/perfume.controller.php";
+include_once "app/controller/brand.controller.php";
+include_once "app/controller/auth.controller.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -11,42 +13,51 @@ if (!empty($_GET['action'])) {
 // parsea la accion Ej: dev/juan --> ['dev', juan]
 $params = explode('/', $action);
 
-$controller = new perfumeController();
-$admin = true;
+$perfumeController = new perfumeController();
+$brandController = new brandController();
+$authController = new authController();
 
 // tabla de ruteo
 switch ($params[0]) {
     case 'perfumes':
-        if($admin) {
-            $controller->showInsert();
+        if(isset($params[1])) {
+            $brand = $params[1];
+            $perfumeController->perfumeDescription($brand); 
+        } 
+        else {
+            $perfumeController->showPerfumes();
         }
-        $controller->showPerfumes();
+        break;
+
+    case 'brands':
+        if(isset($params[1])) {
+            $perfume = $params[1];
+            $perfumeController->filterPerfumes($perfume);
+        } 
+        else {
+            $brandController->showBrands();
+        }
         break;
 
     case 'add':
-        $controller->addPerfume();
+        $perfumeController->addPerfume();
         break;
 
     case 'delete':
         $id = $params[1];
-        $controller->deletePerfume($id);
-        break;
-
-    case 'brands':
-        $controller->showBrands();
-        break;
-
-    case 'about':
-        $controller->showAbout();
+        $perfumeController->deletePerfume($id);
         break;
 
     case 'login':
-        $controller->showLogin();        
+        $authController->showLogin();        
         break;
 
-    case $params[0]:  // 'brand_name'
-        $controller->filterPerfumes($params[0]);
-        $controller->perfumeDescription($params[0]);
+    case 'validate':
+        $authController->validateUser();
+        break;
+
+    case 'logout':
+        $authController->logout();
         break;
 
     default:

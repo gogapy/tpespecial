@@ -18,24 +18,14 @@ class perfumeModel{
         return $object;
     }
 
-    function perfumeDescription($column, $table, $name) {
-        $query = $this->db->prepare("SELECT $column FROM $table WHERE perfume_name = '$name'");    
-        $query->execute();
+    function interactionWithTables($columns, $table, $column, $name) {
+        $query = $this->db->prepare("SELECT $columns FROM $table WHERE $column = ?");    
+        $query->execute([$name]);
 
         $object = $query->fetchAll(PDO::FETCH_OBJ);
         // var_dump($object);  
 
-        return $object;
-    }
-
-    function filterPerfumes($column, $table, $name) {
-        $query = $this->db->prepare("SELECT $column FROM $table WHERE brand_name = '$name'");    
-        $query->execute();
-
-        $object = $query->fetchAll(PDO::FETCH_OBJ);
-        // var_dump($object);  
-
-        return $object;
+        return $object; 
     }
 
     function createPerfume($name, $notes, $longevity, $qualification, $brand, $description, $image) {

@@ -1,55 +1,48 @@
 <?php
-# Importo todo los necesario
+// Importo todo los necesario
 include_once "app/model/perfume.model.php";
 include_once "app/view/perfume.view.php";
-
+require_once 'app/helper/auth.helper.php';
 
 class perfumeController{
 
     private $model;
     private $view; 
+    private $helper;
 
     function __construct() {
         $this->model = new perfumeModel();
         $this->view = new perfumeView();
+        
+        //security
+        $this->helper = new AuthHelper();
     }
 
     function showPerfumes() {
         $perfumes = $this->model->getObject('*', "perfumes");
-        $this->view->showPerfumes($perfumes);
-    }
-
-    function showBrands() {
         $brands = $this->model->getObject('*', "brands");
-        $this->view->showBrands($brands);
-    }
+        $this->helper->checkLoggedIn();
 
-    function showAbout() {
-        $this->view->showAbout();
-    }
+        $this->view->showPerfumes($perfumes, $brands);
 
-    function showLogin() {
-        $this->view->showLogin();
-    }
-
-    function showNameBrand() {
-        $this->model->getObject('brand_name', 'perfumes');
-    }
-
-    function showInsert() {
-        $brands = $this->model->getObject('brand_name', 'brands');
-        $this->view->showCreate($brands);
     }
 
     function filterPerfumes($name) {
-        $perfumes = $this->model->filterPerfumes("*", "perfumes", $name);
-        $this->view->showPerfumes($perfumes);    
+        $perfumes = $this->model->interactionWithTables("*", "perfumes", "brand_name", $name);
+        $brands = $this->model->interactionWithTables("*", "brands", "brand_name", $name);
+        $this->helper->checkLoggedIn();
+
+        $this->view->showPerfumes($perfumes, $brands);  
+        
+
     }
 
     function perfumeDescription($name) {
-        $perfumes = $this->model->perfumeDescription("*", "perfumes", $name);
+        $perfumes = $this->model->interactionWithTables("*", "perfumes", "perfume_name", $name);
         //var_dump($perfumes);
+        $this->helper->checkLoggedIn();
         $this->view->showPerfumeFilter($perfumes);  
+
     }
 
     function addPerfume() {
@@ -63,11 +56,11 @@ class perfumeController{
 
         $id = $this->model->createPerfume($name, $notes, $longevity, $qualification, $brand, $description, $image);
 
-        header("Location: " . BASE_URL); 
+        header("Location: " . BASE_URL . "perfumes"); 
     }
 
     function deletePerfume($id) {
         $this->model->deletePerfume($id);
-        header("Location: " . BASE_URL); 
+        header("Location: " . BASE_URL . "perfumes"); 
     }
 }

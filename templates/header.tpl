@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="{BASE_URL}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +18,15 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="brands">Brands</a>
-                    <a class="nav-link" href="about">About</a>
-                    <a class="nav-link" href="login">Login</a>
+                    {if !isset($smarty.session.USER_ID)}
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="login">Login</a>
+                      </li>
+                    {else} 
+                      <li class="nav-item ml-auto">
+                        <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
+                      </li>
+                    {/if}
                 </div>
             </div>
         </div>

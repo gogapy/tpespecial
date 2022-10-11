@@ -1,4 +1,19 @@
-{include file="templates/header.tpl" assign=name var1=value}
+{include 'header.tpl'}
+{* <div class="col-md-3">
+    <form action="filter" method="post">
+        <label class="form-label">Brand</label>
+        <select name="brand"  class="form-control">
+            <option value="#">Select a brand</option>
+        {foreach from=$brands item=$brand}
+            <option name="{$brand->brand_name}">{$brand->brand_name}</option>
+        {/foreach}
+        </select>
+        <button type="submit" class="btn btn-small">Filtrar</button>
+    </form>
+</div> *}
+{if isset($smarty.session.USER_ID)}
+    {include 'show_create.tpl'}
+{/if}
 <table class="table">
     <tr>
         <th>Name</th>
@@ -10,7 +25,7 @@
     </tr>
     {foreach from=$perfumes item=$perfume}
         <tr>
-            <td><a style="text-decoration: none" href="{$perfume->perfume_name}">{$perfume->perfume_name}</a></td>
+            <td><a style="text-decoration: none" href="perfumes/{$perfume->perfume_name}">{$perfume->perfume_name}</a></td>
             <td>{$perfume->notes}</td>
             <td>{$perfume->qualification}</td>
             <td>{$perfume->longevity}</td>
@@ -22,4 +37,5 @@
 
 </table>
 <p class="mt-3"><small>Perfumes quantity: {$count}</small></p>
-{include file="templates/footer.tpl" assign=name var1=value}
+
+{include 'footer.tpl'}  

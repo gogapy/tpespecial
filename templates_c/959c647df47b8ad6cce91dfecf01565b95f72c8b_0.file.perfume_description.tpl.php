@@ -1,26 +1,32 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-06 22:18:11
-  from 'C:\xampp\htdocs\tpespecial\templates\perfume_description.tpl' */
+/* Smarty version 4.2.1, created on 2022-10-10 20:05:47
+  from 'C:\xampp\htdocs\Fragrantica\templates\perfume_description.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633f38038a5167_76181365',
+  'unifunc' => 'content_63445efbd16605_98922325',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'ec67fa68a77bb3a8e1f147d4f870401c19e4c367' => 
+    '959c647df47b8ad6cce91dfecf01565b95f72c8b' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\tpespecial\\templates\\perfume_description.tpl',
-      1 => 1665087489,
+      0 => 'C:\\xampp\\htdocs\\Fragrantica\\templates\\perfume_description.tpl',
+      1 => 1665425144,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:header.tpl' => 1,
+    'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_633f38038a5167_76181365 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63445efbd16605_98922325 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['perfumes']->value, 'perfume');
 $_smarty_tpl->tpl_vars['perfume']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['perfume']->value) {
@@ -35,6 +41,8 @@ $_smarty_tpl->tpl_vars['perfume']->do_else = false;
 </p>
 <?php
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+<?php $_smarty_tpl->_subTemplateRender('file:footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }
