@@ -42,10 +42,26 @@ switch ($params[0]) {
     case 'add':
         $perfumeController->addPerfume();
         break;
-
-    case 'delete':
+    
+    case 'create':
+        $brandController->createBrand();
+        break;
+    
+    case 'deleteperfume':
         $id = $params[1];
         $perfumeController->deletePerfume($id);
+        break;
+
+    case 'deletebrand':
+        $id = $params[1];
+        $brandController->deleteBrand($id);
+        break;
+
+    case 'update':
+        $id = $params[1];
+        $perfumeController->showUpdate($id);
+        $perfumeController->updatePerfume($id);
+    
         break;
 
     case 'login':

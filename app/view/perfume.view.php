@@ -15,8 +15,11 @@ class perfumeView {
         
     }
 
-    function showCreate($brands) {
-
+    function showUpdate($perfumes, $brands) {
+        $smarty = new Smarty();
+        $smarty->assign('perfumes', $perfumes);
+        $smarty->assign('brands', $brands);
+        $smarty->display('templates/show_update.tpl');
     }
 
     function showPerfumeFilter($perfumes) {

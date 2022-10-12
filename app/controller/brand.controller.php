@@ -25,8 +25,22 @@ class brandController {
 
     }
 
-    function showCreate() {
+    function createBrand() {
+        $brand = $_GET['brand'];
+        $this->model->createBrand($brand);
+
+        header("Location: " . BASE_URL . "brands"); 
 
     }
 
+    function deleteBrand($id) {
+        try {
+            $this->model->deleteBrand($id);
+        }
+        catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            $this->view->showBrands($e);
+        }
+        header("Location: " . BASE_URL . "brands"); 
+    }
 }

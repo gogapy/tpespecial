@@ -24,4 +24,12 @@ class brandModel {
         
         return $this->db->lastInsertId();
     }
+
+    function deleteBrand($id) {
+        $query = $this->db->prepare('DELETE FROM brands WHERE id_brand = ?');
+        $query->execute([$id]);
+
+    }
+
+    
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-11 17:59:06
+/* Smarty version 4.2.1, created on 2022-10-12 20:17:56
   from 'C:\xampp\htdocs\Fragrantica\templates\show_perfumes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634592ca17fa91_97530799',
+  'unifunc' => 'content_634704d49503e9_26866467',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9fa25eb9ec1e96beb412039508ceea30348c9e68' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Fragrantica\\templates\\show_perfumes.tpl',
-      1 => 1665503938,
+      1 => 1665598673,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_634592ca17fa91_97530799 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634704d49503e9_26866467 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 if ((isset($_SESSION['USER_ID']))) {?>
     <?php $_smarty_tpl->_subTemplateRender('file:show_create.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -55,9 +55,12 @@ $_smarty_tpl->tpl_vars['perfume']->do_else = false;
 </td>
             <td><?php echo $_smarty_tpl->tpl_vars['perfume']->value->brand_name;?>
 </td>
-            <td><a href='delete/<?php echo $_smarty_tpl->tpl_vars['perfume']->value->id_perfume;?>
+            <?php if ((isset($_SESSION['USER_ID']))) {?>
+                <td><a href='deleteperfume/<?php echo $_smarty_tpl->tpl_vars['perfume']->value->id_perfume;?>
 '><button type="button" class="btn-close" aria-label="Close"></button></a></td>
-
+                <td><a href='update/<?php echo $_smarty_tpl->tpl_vars['perfume']->value->id_perfume;?>
+'><button type="button" class="btn btn-success">Update</button></a></td>
+            <?php }?>
         </tr>
     <?php
 }

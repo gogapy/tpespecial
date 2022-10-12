@@ -30,8 +30,10 @@
             <td>{$perfume->qualification}</td>
             <td>{$perfume->longevity}</td>
             <td>{$perfume->brand_name}</td>
-            <td><a href='delete/{$perfume->id_perfume}'><button type="button" class="btn-close" aria-label="Close"></button></a></td>
-
+            {if isset($smarty.session.USER_ID)}
+                <td><a href='deleteperfume/{$perfume->id_perfume}'><button type="button" class="btn-close" aria-label="Close"></button></a></td>
+                <td><a href='update/{$perfume->id_perfume}'><button type="button" class="btn btn-success">Update</button></a></td>
+            {/if}
         </tr>
     {/foreach}
 

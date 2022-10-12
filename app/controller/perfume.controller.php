@@ -27,24 +27,6 @@ class perfumeController{
 
     }
 
-    function filterPerfumes($name) {
-        $perfumes = $this->model->interactionWithTables("*", "perfumes", "brand_name", $name);
-        $brands = $this->model->interactionWithTables("*", "brands", "brand_name", $name);
-        $this->helper->checkLoggedIn();
-
-        $this->view->showPerfumes($perfumes, $brands);  
-        
-
-    }
-
-    function perfumeDescription($name) {
-        $perfumes = $this->model->interactionWithTables("*", "perfumes", "perfume_name", $name);
-        //var_dump($perfumes);
-        $this->helper->checkLoggedIn();
-        $this->view->showPerfumeFilter($perfumes);  
-
-    }
-
     function addPerfume() {
         $name = $_POST['perfume'];
         $notes = $_POST['notes'];
@@ -55,7 +37,7 @@ class perfumeController{
         $image = $_POST['image'];
 
         $id = $this->model->createPerfume($name, $notes, $longevity, $qualification, $brand, $description, $image);
-
+        
         header("Location: " . BASE_URL . "perfumes"); 
     }
 
@@ -63,4 +45,43 @@ class perfumeController{
         $this->model->deletePerfume($id);
         header("Location: " . BASE_URL . "perfumes"); 
     }
+
+    function showUpdate($id) {
+        $this->helper->checkLoggedIn();
+        $perfumes = $this->model->interactionWithTables('*', 'perfumes', 'id_perfume', $id);
+        $brands = $this->model->getObject('*', "brands");
+        $this->view->showUpdate($perfumes, $brands);
+    }
+
+    function updatePerfume($id) {
+
+        $name = $_POST['perfume'];
+        $notes = $_POST['notes'];
+        $longevity = $_POST['longevity'];
+        $qualification = $_POST['qualification'];
+        $brand = $_POST['brand'];
+        $description = $_POST['description'];
+        $image = $_POST['image'];
+
+        $this->model->updatePerfume($id, $name, $notes, $longevity, $qualification, $brand, $description, $image);
+
+    }
+
+    function filterPerfumes($name) {
+        $perfumes = $this->model->interactionWithTables("*", "perfumes", "brand_name", $name);
+        $brands = $this->model->interactionWithTables("*", "brands", "brand_name", $name);
+        $this->helper->checkLoggedIn();
+
+        $this->view->showPerfumes($perfumes, $brands);  
+        
+    }
+
+    function perfumeDescription($name) {
+        $perfumes = $this->model->interactionWithTables("*", "perfumes", "perfume_name", $name);
+        //var_dump($perfumes);
+        $this->helper->checkLoggedIn();
+        $this->view->showPerfumeFilter($perfumes);  
+
+    }
+
 }

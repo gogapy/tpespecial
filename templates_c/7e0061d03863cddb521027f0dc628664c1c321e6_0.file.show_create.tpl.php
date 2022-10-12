@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-11 16:00:28
+/* Smarty version 4.2.1, created on 2022-10-12 18:49:25
   from 'C:\xampp\htdocs\Fragrantica\templates\show_create.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634576fc85d851_21874665',
+  'unifunc' => 'content_6346f01554a005_92069104',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e0061d03863cddb521027f0dc628664c1c321e6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Fragrantica\\templates\\show_create.tpl',
-      1 => 1665496827,
+      1 => 1665593299,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_634576fc85d851_21874665 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6346f01554a005_92069104 (Smarty_Internal_Template $_smarty_tpl) {
 ?> 
   <form action="add" method="POST" class="row g-3 mt-1" enctype="multipart/form-data">
     <div class="col-md-6">

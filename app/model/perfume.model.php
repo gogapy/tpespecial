@@ -39,4 +39,11 @@ class perfumeModel{
         $query = $this->db->prepare('DELETE FROM perfumes WHERE id_perfume = ?');
         $query->execute([$id]);
     }
+
+    function updatePerfume($id, $name, $notes, $longevity, $qualification, $brand, $description, $image) {
+        $query = $this->db->prepare("UPDATE perfumes SET perfume_name=?, notes=?, longevity=?, qualification=?, brand_name=?, perfume_description=?, perfume_image=? WHERE id_perfume=?");
+        $query->execute([$name, $notes, $longevity, $qualification, $brand, $description, $image, $id]);  
+        return $this->db->lastInsertId();
+
+    }
 }
