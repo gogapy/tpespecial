@@ -60,8 +60,11 @@ switch ($params[0]) {
     case 'update':
         $id = $params[1];
         $perfumeController->showUpdate($id);
+        break;
+
+    case 'updated':
+        $id = $params[1];
         $perfumeController->updatePerfume($id);
-    
         break;
 
     case 'login':

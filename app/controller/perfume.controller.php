@@ -46,17 +46,18 @@ class perfumeController{
         header("Location: " . BASE_URL . "perfumes"); 
     }
 
-    function showUpdate($id) {
+    function showUpdate($id = null) {
         $this->helper->checkLoggedIn();
         $perfumes = $this->model->interactionWithTables('*', 'perfumes', 'id_perfume', $id);
         $brands = $this->model->getObject('*', "brands");
         $this->view->showUpdate($perfumes, $brands);
+
     }
 
     function updatePerfume($id) {
-
+        
         $name = $_POST['perfume'];
-        $notes = $_POST['notes'];
+        $notes = $_POST['notes']; 
         $longevity = $_POST['longevity'];
         $qualification = $_POST['qualification'];
         $brand = $_POST['brand'];
@@ -64,6 +65,7 @@ class perfumeController{
         $image = $_POST['image'];
 
         $this->model->updatePerfume($id, $name, $notes, $longevity, $qualification, $brand, $description, $image);
+        header("Location: " . BASE_URL . "perfumes"); 
 
     }
 

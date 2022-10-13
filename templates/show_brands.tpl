@@ -8,6 +8,11 @@
     <tr>
         <th>Brand</th>
     </tr>
+    {if isset($smarty.session.USER_ID)}
+        <div class="alert alert-warning mt-3">
+            To eliminate a brand first you need to delete all the perfumes with that brand.
+        </div>
+    {/if}
         {foreach from=$brands item=$brand}
             <tr>
                 <td>
@@ -16,6 +21,7 @@
                     </a>
                 </td>
                 {if isset($smarty.session.USER_ID)}
+
                     <td>
                         <a href='deletebrand/{$brand->id_brand}'>
                             <button type="button" class="btn-close" aria-label="Close"></button>
