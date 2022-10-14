@@ -1,6 +1,6 @@
 {include "header.tpl"}
  {foreach from=$perfumes item=$perfume}
-  <form action="updated/{$perfume->id_perfume}" method="POST" class="row g-3 mt-1" enctype="multipart/form-data">
+  <form action="perfumeupdated/{$perfume->id_perfume}" method="POST" class="row g-3 mt-1" enctype="multipart/form-data">
     <div class="col-md-6">
       <label class="form-label">Perfume name</label>
       <input name="perfume" type="text" class="form-control" value="{$perfume->perfume_name}" placeholder="Perfume name">

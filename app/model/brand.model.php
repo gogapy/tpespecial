@@ -18,6 +18,16 @@ class brandModel {
         return $object;
     }
 
+    function interactionWithTables($columns, $table, $column, $name) {
+        $query = $this->db->prepare("SELECT $columns FROM $table WHERE $column = ?");    
+        $query->execute([$name]);
+
+        $object = $query->fetchAll(PDO::FETCH_OBJ);
+        // var_dump($object);  
+
+        return $object; 
+    }
+
     function createBrand($brand) {
         $query = $this->db->prepare("INSERT INTO brands (brand_name) VALUES (?)");
         $query->execute([$brand]);
@@ -31,5 +41,11 @@ class brandModel {
 
     }
 
+    function updatePerfume($id, $name) {
+        $query = $this->db->prepare("UPDATE brands SET brand_name=? WHERE id_brand=?");
+        $query->execute([$name, $id]);  
+        return $this->db->lastInsertId();
+
+    }
     
 }

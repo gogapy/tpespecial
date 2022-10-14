@@ -19,6 +19,14 @@ $authController = new authController();
 
 // tabla de ruteo
 switch ($params[0]) {
+    case 'login':
+        $authController->showLogin();        
+        break;
+
+    case 'validate':
+        $authController->validateUser();
+        break;
+        
     case 'perfumes':
         if(isset($params[1])) {
             $brand = $params[1];
@@ -57,22 +65,24 @@ switch ($params[0]) {
         $brandController->deleteBrand($id);
         break;
 
-    case 'update':
+    case 'updateperfume':
         $id = $params[1];
         $perfumeController->showUpdate($id);
         break;
 
-    case 'updated':
+    case 'perfumeupdated':
         $id = $params[1];
         $perfumeController->updatePerfume($id);
         break;
 
-    case 'login':
-        $authController->showLogin();        
+    case 'updatebrand':
+        $id = $params[1];
+        $brandController->showUpdateBrand($id);
         break;
 
-    case 'validate':
-        $authController->validateUser();
+    case 'brandupdated':
+        $id = $params[1];
+        $brandController->updateBrand($id);
         break;
 
     case 'logout':

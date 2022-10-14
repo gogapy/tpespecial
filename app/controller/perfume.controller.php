@@ -28,6 +28,8 @@ class perfumeController{
     }
 
     function addPerfume() {
+        $this->helper->userRestrict();
+
         $name = $_POST['perfume'];
         $notes = $_POST['notes'];
         $longevity = $_POST['longevity'];
@@ -42,11 +44,12 @@ class perfumeController{
     }
 
     function deletePerfume($id) {
+        $this->helper->userRestrict();
         $this->model->deletePerfume($id);
         header("Location: " . BASE_URL . "perfumes"); 
     }
 
-    function showUpdate($id = null) {
+    function showUpdate($id) {
         $this->helper->checkLoggedIn();
         $perfumes = $this->model->interactionWithTables('*', 'perfumes', 'id_perfume', $id);
         $brands = $this->model->getObject('*', "brands");
@@ -55,7 +58,8 @@ class perfumeController{
     }
 
     function updatePerfume($id) {
-        
+        $this->helper->userRestrict();
+
         $name = $_POST['perfume'];
         $notes = $_POST['notes']; 
         $longevity = $_POST['longevity'];

@@ -36,8 +36,12 @@ class perfumeModel{
     }
 
     function deletePerfume($id) {
+        if (isset($_SESSION['IS_LOGGED'])) {
+
         $query = $this->db->prepare('DELETE FROM perfumes WHERE id_perfume = ?');
         $query->execute([$id]);
+
+        }
     }
 
     function updatePerfume($id, $name, $notes, $longevity, $qualification, $brand, $description, $image) {

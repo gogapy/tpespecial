@@ -26,21 +26,34 @@ class brandController {
     }
 
     function createBrand() {
+        $this->helper->userRestrict();
+
         $brand = $_GET['brand'];
         $this->model->createBrand($brand);
-
+        
         header("Location: " . BASE_URL . "brands"); 
 
     }
 
     function deleteBrand($id) {
-        try {
-            $this->model->deleteBrand($id);
-        }
-        catch (Exception $e) {
-            echo 'Caught exception: ',  $e->getMessage(), "\n";
-            $this->view->showBrands($e);
-        }
+        $this->helper->userRestrict();
+        $this->model->deleteBrand($id);
+        // $brands = $this->model->getObject('*', "brands");
+        // $this->view->showBrands($brands, 'To eliminate a brand first you need to delete all the perfumes with that brand. (THIS IS FOR DATABASE SECURITY)');
+
+    }
+   
+    function showUpdateBrand($id) {
+        $this->helper->checkLoggedIn();
+        $brands = $this->model->interactionWithTables('*', 'brands', 'id_brand', $id);
+        $this->view->showUpdateBrand($brands);
+
+    }
+
+    function updateBrand($id) {
+        $name = $_POST['perfume'];
+        $this->model->updatePerfume($id, $name);
         header("Location: " . BASE_URL . "brands"); 
+
     }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 19:50:32
+/* Smarty version 4.2.1, created on 2022-10-13 20:14:07
   from 'C:\xampp\htdocs\Fragrantica\templates\show_update.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63484fe866b238_19787393',
+  'unifunc' => 'content_6348556f7dfdd1_39918352',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7c5060dfa63fd264a7bff1d36b7c0f5ad5efb44' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Fragrantica\\templates\\show_update.tpl',
-      1 => 1665683430,
+      1 => 1665684844,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_63484fe866b238_19787393 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6348556f7dfdd1_39918352 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
  <?php
@@ -31,7 +31,7 @@ $_smarty_tpl->tpl_vars['perfume']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['perfume']->value) {
 $_smarty_tpl->tpl_vars['perfume']->do_else = false;
 ?>
-  <form action="updated/<?php echo $_smarty_tpl->tpl_vars['perfume']->value->id_perfume;?>
+  <form action="perfumeupdated/<?php echo $_smarty_tpl->tpl_vars['perfume']->value->id_perfume;?>
 " method="POST" class="row g-3 mt-1" enctype="multipart/form-data">
     <div class="col-md-6">
       <label class="form-label">Perfume name</label>

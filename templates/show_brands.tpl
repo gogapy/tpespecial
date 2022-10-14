@@ -8,9 +8,14 @@
     <tr>
         <th>Brand</th>
     </tr>
+    {* {if $error} 
+        <div class="alert alert-warning mt-3">
+            {$error}
+        </div>
+    {/if} *}
     {if isset($smarty.session.USER_ID)}
         <div class="alert alert-warning mt-3">
-            To eliminate a brand first you need to delete all the perfumes with that brand.
+            To eliminate a brand first you need to delete all the perfumes with that brand. (THIS IS FOR DATABASE SECURITY)
         </div>
     {/if}
         {foreach from=$brands item=$brand}
@@ -27,14 +32,15 @@
                             <button type="button" class="btn-close" aria-label="Close"></button>
                         </a>
                     </td>
+                    <td>
+                        <a href='updatebrand/{$brand->id_brand}'>
+                            <button type="button" class="btn btn-success">Update</button>
+                        </a>
+                    </td>
                 {/if}
             </tr>
         {/foreach}
 </table>
-{if $error} 
-<div class="alert alert-danger mt-3">
-    {$error}
-</div>
-{/if}
+
 
 {include 'footer.tpl'}
