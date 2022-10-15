@@ -16,5 +16,6 @@ class brandView {
         $smarty = new Smarty();
         $smarty->assign('brands', $brands);
         $smarty->display('templates/update_brand.tpl');
+        
     }
 }

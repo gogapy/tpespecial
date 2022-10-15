@@ -16,6 +16,7 @@ class perfumeController{
         
         //security
         $this->helper = new AuthHelper();
+        
     }
 
     function showPerfumes() {
@@ -41,12 +42,14 @@ class perfumeController{
         $id = $this->model->createPerfume($name, $notes, $longevity, $qualification, $brand, $description, $image);
         
         header("Location: " . BASE_URL . "perfumes"); 
+
     }
 
     function deletePerfume($id) {
         $this->helper->userRestrict();
         $this->model->deletePerfume($id);
         header("Location: " . BASE_URL . "perfumes"); 
+
     }
 
     function showUpdate($id) {
@@ -77,14 +80,12 @@ class perfumeController{
         $perfumes = $this->model->interactionWithTables("*", "perfumes", "brand_name", $name);
         $brands = $this->model->interactionWithTables("*", "brands", "brand_name", $name);
         $this->helper->checkLoggedIn();
-
         $this->view->showPerfumes($perfumes, $brands);  
         
     }
 
     function perfumeDescription($name) {
         $perfumes = $this->model->interactionWithTables("*", "perfumes", "perfume_name", $name);
-        //var_dump($perfumes);
         $this->helper->checkLoggedIn();
         $this->view->showPerfumeFilter($perfumes);  
 

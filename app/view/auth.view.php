@@ -8,6 +8,7 @@ class authView {
 
     public function __construct() {
         $this->smarty = new Smarty();
+        
     }
 
     function showLogin($error = null) {

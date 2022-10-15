@@ -16,6 +16,7 @@ class brandController {
         $this->view = new brandView();
         //security
         $this->helper = new AuthHelper();
+        
     }
 
     function showBrands() {
@@ -27,10 +28,8 @@ class brandController {
 
     function createBrand() {
         $this->helper->userRestrict();
-
         $brand = $_GET['brand'];
         $this->model->createBrand($brand);
-        
         header("Location: " . BASE_URL . "brands"); 
 
     }
