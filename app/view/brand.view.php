@@ -4,18 +4,23 @@ require_once 'libs/smarty/libs/Smarty.class.php';
 
 class brandView {
 
+    private $smarty;
+
+    public function __construct() {
+        $this->smarty = new Smarty();
+        
+    }
+
     function showBrands($brands, $error = null) {
-        $smarty = new Smarty();
-        $smarty->assign('brands', $brands);
-        $smarty->assign('error', $error);
-        $smarty->display('templates/show_brands.tpl');
+        $this->smarty->assign('brands', $brands);
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/show_brands.tpl');
 
     }
 
     function showUpdateBrand($brands) {
-        $smarty = new Smarty();
-        $smarty->assign('brands', $brands);
-        $smarty->display('templates/update_brand.tpl');
+        $this->smarty->assign('brands', $brands);
+        $this->smarty->display('templates/update_brand.tpl');
         
     }
 }

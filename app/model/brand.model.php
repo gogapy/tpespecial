@@ -6,6 +6,7 @@ class brandModel {
 
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=perfume_shop;charset=utf8', 'root', '');
+        
     }
 
     function getObject($column, $table) {
@@ -42,7 +43,7 @@ class brandModel {
         }
         catch(Exception) {
             header('Location:' . BASE_URL . 'brands');
-            
+
         }
 
     }

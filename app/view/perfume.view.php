@@ -4,27 +4,31 @@ require_once 'libs/smarty/libs/Smarty.class.php';
 
 class perfumeView {
     
+    private $smarty;
+
+    public function __construct() {
+        $this->smarty = new Smarty();
+        
+    }
+
     function showPerfumes($perfumes, $brands) {
-        $smarty = new Smarty();
-        $smarty->assign('perfumes', $perfumes);
-        $smarty->assign('brands', $brands);
-        $smarty->assign('count', count($perfumes));
-        $smarty->display('templates/show_perfumes.tpl');
+        $this->smarty->assign('perfumes', $perfumes);
+        $this->smarty->assign('brands', $brands);
+        $this->smarty->assign('count', count($perfumes));
+        $this->smarty->display('templates/show_perfumes.tpl');
 
     }
 
     function showUpdate($perfumes, $brands) {
-        $smarty = new Smarty();
-        $smarty->assign('perfumes', $perfumes);
-        $smarty->assign('brands', $brands);
-        $smarty->display('templates/show_update.tpl');
+        $this->smarty->assign('perfumes', $perfumes);
+        $this->smarty->assign('brands', $brands);
+        $this->smarty->display('templates/show_update.tpl');
 
     }
 
     function showPerfumeFilter($perfumes) {
-        $smarty = new Smarty();
-        $smarty->assign('perfumes', $perfumes);
-        $smarty->display('templates/perfume_description.tpl');
+        $this->smarty->assign('perfumes', $perfumes);
+        $this->smarty->display('templates/perfume_description.tpl');
 
     }
 }

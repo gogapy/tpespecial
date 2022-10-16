@@ -6,6 +6,7 @@ class perfumeModel{
 
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=perfume_shop;charset=utf8', 'root', '');
+
     }
     
     function getObject($column, $table) {
@@ -14,6 +15,7 @@ class perfumeModel{
         $object = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $object;
+        
     }
 
     function interactionWithTables($columns, $table, $column, $name) {
