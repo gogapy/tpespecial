@@ -14,6 +14,9 @@
 {if isset($smarty.session.USER_ID)}
     {include 'show_create.tpl'}
 {/if}
+<div class="alert alert-warning mt-3">
+    Click on the perfume name for a description of it
+</div>
 <table class="table">
     <tr>
         <th>Name</th>
@@ -21,7 +24,10 @@
         <th>Qualification</th>
         <th>Longevity</th>
         <th>Brand</th>
-        <th></th>
+        {if isset($smarty.session.USER_ID)}
+            <th>Delete</th>
+            <th>Update</th>
+        {/if}
     </tr>
     {foreach from=$perfumes item=$perfume}
         <tr>

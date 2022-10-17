@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-16 06:03:24
+/* Smarty version 4.2.1, created on 2022-10-18 01:15:49
   from 'C:\xampp\htdocs\Fragrantica\templates\show_brands.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634b828c2c60b1_46572510',
+  'unifunc' => 'content_634de225aaea03_17120886',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e2ec4afd17b843021aace7136a4f18770d70df4c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Fragrantica\\templates\\show_brands.tpl',
-      1 => 1665862517,
+      1 => 1666048537,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_634b828c2c60b1_46572510 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634de225aaea03_17120886 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -40,6 +40,9 @@ $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_sm
             To eliminate a brand first you need to delete all the perfumes with that brand. (THIS IS FOR DATABASE SECURITY)
         </div>
     <?php }?>
+    <div class="alert alert-warning mt-3">
+        Click on a brand name to see all the perfumes of that brand
+    </div>
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['brands']->value, 'brand');
 $_smarty_tpl->tpl_vars['brand']->do_else = true;

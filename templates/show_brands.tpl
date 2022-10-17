@@ -18,6 +18,9 @@
             To eliminate a brand first you need to delete all the perfumes with that brand. (THIS IS FOR DATABASE SECURITY)
         </div>
     {/if}
+    <div class="alert alert-warning mt-3">
+        Click on a brand name to see all the perfumes of that brand
+    </div>
         {foreach from=$brands item=$brand}
             <tr>
                 <td>

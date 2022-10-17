@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 20:13:51
+/* Smarty version 4.2.1, created on 2022-10-18 01:17:48
   from 'C:\xampp\htdocs\Fragrantica\templates\show_perfumes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6348555f81bae2_46951097',
+  'unifunc' => 'content_634de29c4c9b42_13086189',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9fa25eb9ec1e96beb412039508ceea30348c9e68' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Fragrantica\\templates\\show_perfumes.tpl',
-      1 => 1665684815,
+      1 => 1666048657,
       2 => 'file',
     ),
   ),
@@ -23,11 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6348555f81bae2_46951097 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634de29c4c9b42_13086189 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 if ((isset($_SESSION['USER_ID']))) {?>
     <?php $_smarty_tpl->_subTemplateRender('file:show_create.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }?>
+<div class="alert alert-warning mt-3">
+    Click on the perfume name for a description of it
+</div>
 <table class="table">
     <tr>
         <th>Name</th>
@@ -35,7 +38,10 @@ if ((isset($_SESSION['USER_ID']))) {?>
         <th>Qualification</th>
         <th>Longevity</th>
         <th>Brand</th>
-        <th></th>
+        <?php if ((isset($_SESSION['USER_ID']))) {?>
+            <th>Delete</th>
+            <th>Update</th>
+        <?php }?>
     </tr>
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['perfumes']->value, 'perfume');
