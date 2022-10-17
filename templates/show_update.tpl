@@ -3,19 +3,19 @@
   <form action="perfumeupdated/{$perfume->id_perfume}" method="POST" class="row g-3 mt-1" enctype="multipart/form-data">
     <div class="col-md-6">
       <label class="form-label">Perfume name</label>
-      <input name="perfume" type="text" class="form-control" value="{$perfume->perfume_name}" placeholder="Perfume name">
+      <input name="perfume" type="text" class="form-control" value="{$perfume->perfume_name}" placeholder="Perfume name" required>
     </div>
     <div class="col-md-6">
       <label class="form-label">Notes</label>
-      <input name="notes" type="text" class="form-control" value="{$perfume->notes}" placeholder="Notes">
+      <input name="notes" type="text" class="form-control" value="{$perfume->notes}" placeholder="Notes" required>
     </div>
     <div class="col-6">
       <label class="form-label">Qualification</label>
-      <input name="qualification" type="number" class="form-control" value="{$perfume->qualification}" placeholder="Qualification">
+      <input name="qualification" type="number" class="form-control" value="{$perfume->qualification}" placeholder="Qualification" required>
     </div>
     <div class="col-6">
       <label class="form-label">Longevity</label>
-      <input name="longevity" type="text" class="form-control" value="{$perfume->longevity}" placeholder="Longevity">
+      <input name="longevity" type="text" class="form-control" value="{$perfume->longevity}" placeholder="Longevity" required>
     </div>
     <div class="col-md-6">
       <label class="form-label">Brand</label>
@@ -27,11 +27,11 @@
     </div>
     <div class="col-6">
       <label class="form-label">Image</label>
-      <input name="image" type="text" class="form-control" value="{$perfume->perfume_image}" placeholder="Image">
+      <input name="image" type="text" class="form-control" value="{$perfume->perfume_image}" placeholder="Image" required>
     </div>
     <div class="col-12">
       <label class="form-label">Description</label>
-      <textarea style="max-height: 250px;" name="description" placeholder="Description" value="{$perfume->perfume_description}" class="form-control" cols="30" rows="10">{$perfume->perfume_description}</textarea>
+      <textarea style="max-height: 250px;" name="description" placeholder="Description" value="{$perfume->perfume_description}" class="form-control" cols="30" rows="10" required>{$perfume->perfume_description}</textarea>
     </div>
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Update</button>
