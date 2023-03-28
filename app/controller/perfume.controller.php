@@ -53,7 +53,7 @@ class perfumeController{
     }
 
     function showUpdate($id) {
-        $this->helper->checkLoggedIn();
+        $this->helper->userRestrict();
         $perfumes = $this->model->interactionWithTables('*', 'perfumes', 'id_perfume', $id);
         $brands = $this->model->getObject('*', "brands");
         $this->view->showUpdate($perfumes, $brands);

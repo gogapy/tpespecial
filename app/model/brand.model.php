@@ -45,7 +45,8 @@ class brandModel {
             header('Location:' . BASE_URL . 'brands');
 
         }
-
+        header('Location:' . BASE_URL . 'brands');
+        
     }
 
     function updatePerfume($id, $name) {

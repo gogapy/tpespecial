@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-13 20:14:07
+/* Smarty version 4.2.1, created on 2022-10-20 00:59:37
   from 'C:\xampp\htdocs\Fragrantica\templates\show_update.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6348556f7dfdd1_39918352',
+  'unifunc' => 'content_63508159d60521_83130224',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7c5060dfa63fd264a7bff1d36b7c0f5ad5efb44' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Fragrantica\\templates\\show_update.tpl',
-      1 => 1665684844,
+      1 => 1666027314,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6348556f7dfdd1_39918352 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63508159d60521_83130224 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
  <?php
@@ -36,22 +36,22 @@ $_smarty_tpl->tpl_vars['perfume']->do_else = false;
     <div class="col-md-6">
       <label class="form-label">Perfume name</label>
       <input name="perfume" type="text" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['perfume']->value->perfume_name;?>
-" placeholder="Perfume name">
+" placeholder="Perfume name" required>
     </div>
     <div class="col-md-6">
       <label class="form-label">Notes</label>
       <input name="notes" type="text" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['perfume']->value->notes;?>
-" placeholder="Notes">
+" placeholder="Notes" required>
     </div>
     <div class="col-6">
       <label class="form-label">Qualification</label>
       <input name="qualification" type="number" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['perfume']->value->qualification;?>
-" placeholder="Qualification">
+" placeholder="Qualification" required>
     </div>
     <div class="col-6">
       <label class="form-label">Longevity</label>
       <input name="longevity" type="text" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['perfume']->value->longevity;?>
-" placeholder="Longevity">
+" placeholder="Longevity" required>
     </div>
     <div class="col-md-6">
       <label class="form-label">Brand</label>
@@ -72,12 +72,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <div class="col-6">
       <label class="form-label">Image</label>
       <input name="image" type="text" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['perfume']->value->perfume_image;?>
-" placeholder="Image">
+" placeholder="Image" required>
     </div>
     <div class="col-12">
       <label class="form-label">Description</label>
       <textarea style="max-height: 250px;" name="description" placeholder="Description" value="<?php echo $_smarty_tpl->tpl_vars['perfume']->value->perfume_description;?>
-" class="form-control" cols="30" rows="10"><?php echo $_smarty_tpl->tpl_vars['perfume']->value->perfume_description;?>
+" class="form-control" cols="30" rows="10" required><?php echo $_smarty_tpl->tpl_vars['perfume']->value->perfume_description;?>
 </textarea>
     </div>
     <div class="col-12">

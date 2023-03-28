@@ -6,7 +6,6 @@ class perfumeModel{
 
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=perfume_shop;charset=utf8', 'root', '');
-
     }
     
     function getObject($column, $table) {
@@ -37,8 +36,8 @@ class perfumeModel{
 
     function deletePerfume($id) {
         if (isset($_SESSION['IS_LOGGED'])) {
-        $query = $this->db->prepare('DELETE FROM perfumes WHERE id_perfume = ?');
-        $query->execute([$id]);
+            $query = $this->db->prepare('DELETE FROM perfumes WHERE id_perfume = ?');
+            $query->execute([$id]);
 
         }
 
